@@ -9,7 +9,7 @@ public class Environment {
         sparkSessionThreadLocal.set(sparkSession);
     }
 
-    public SparkSession take() {
+    public SparkSession get() {
         return sparkSessionThreadLocal.get();
     }
 
