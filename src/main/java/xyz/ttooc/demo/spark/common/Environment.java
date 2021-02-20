@@ -1,5 +1,6 @@
 package xyz.ttooc.demo.spark.common;
 
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 
 public class Environment {
@@ -15,5 +16,13 @@ public class Environment {
 
     public void clear() {
         sparkSessionThreadLocal.remove();
+    }
+
+    public JavaSparkContext getJavaSparkContext() {
+        return new JavaSparkContext(sparkSessionThreadLocal.get().sparkContext());
+    }
+
+    public void getJavaStreamingContext() {
+
     }
 }
